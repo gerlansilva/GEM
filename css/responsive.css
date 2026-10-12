@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* ==========================================================
+   GEM UFSCar — responsivo, movimento reduzido, impressão
+   ========================================================== */
+
+@media (max-width: 1100px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+  .pessoas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 991px) {
+  :root { --space-3xl: 3.75rem; --space-4xl: 5rem; }
+
+  .hero-grid { grid-template-columns: 1fr; }
+  .mapa { margin: var(--space-md) auto 0; max-width: 520px; }
+
+  .producao { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .contato-grid { grid-template-columns: 1fr; }
+
+  .paineis { grid-template-columns: 1fr 1fr; }
+  .painel:nth-child(n) { min-height: 0; }
+  .duas-colunas { grid-template-columns: 1fr; }
+  .edicoes { grid-template-columns: repeat(2, 1fr); }
+  .visitantes-grid { grid-template-columns: 1fr; }
+  .pub-list { grid-template-columns: 1fr; }
+  .tempo { grid-template-columns: repeat(3, 1fr); row-gap: var(--space-xl); }
+  .tempo::before { display: none; }
+
+  /* Menu recolhível */
+  .site-nav { flex-direction: column; align-items: center; }
+  .nav-toggle { display: inline-flex; }
+  .nav-list {
+    display: none; width: 100%; max-width: 420px; margin-top: 0.6rem;
+    flex-direction: column; flex-wrap: nowrap; border-radius: 28px; gap: 0.15rem; padding: 0.5rem;
+  }
+  .nav-list.open { display: flex; }
+  .nav-link { padding: 0.75rem 1.2rem; text-align: center; }
+}
+
+@media (max-width: 720px) {
+  .page-head { min-height: 0; }
+  :root { --gutter: 1.15rem; --fs-base: 1rem; --space-2xl: 2.75rem; }
+  .brand { padding-top: 1.2rem; }
+  .brand-logo img { height: 64px; }
+  .blob { width: 110px !important; }
+  .brand-inst { font-size: 0.875rem; }
+
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .paineis { grid-template-columns: 1fr; }
+  .painel:nth-child(n) { padding: 2rem 1.7rem; border-radius: 28px 80px 28px 80px; }
+  .painel:nth-child(2), .painel:nth-child(3) { border-radius: 80px 28px 80px 28px; }
+  .pessoas { grid-template-columns: 1fr; }
+  .edicao, .visitante { grid-template-columns: 1fr; gap: var(--space-md); }
+  .edicao-mancha, .visitante-mancha { width: 170px; height: 135px; }
+  .chamada { border-radius: 28px 80px 28px 80px; padding: var(--space-xl) var(--space-lg); }
+  .form-caixa { padding: var(--space-lg) var(--space-md); border-radius: 28px 60px 28px 28px; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+
+  .tempo { grid-template-columns: 1fr 1fr; }
+  .edicoes { grid-template-columns: 1fr; }
+
+  /* Tabela vira lista de blocos */
+  .table thead { display: none; }
+  .table, .table tbody, .table tr, .table td { display: block; width: 100%; }
+  .table tr { padding: 0.7rem 0.4rem; border-bottom: 2px solid var(--linha); }
+  .table tbody tr:last-child { border-bottom: 0; }
+  .table td { display: flex; justify-content: space-between; gap: 1rem; padding: 0.25rem 0.9rem; border: 0; }
+  .table td::before { content: attr(data-label); font-weight: 700; color: var(--grafite-escuro); }
+}
+
+@media (max-width: 460px) {
+  .mancha { font-size: 1rem; }
+}
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+  .mancha:hover, .btn:hover { transform: none; }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: more) {
+  :root { --linha: var(--verde); }
+  .nav-list, .form-control, .table-wrapper { border-width: 3px; }
+}
+
+/* Impressão */
+@media print {
+  .site-header .blob, .site-nav, .nav-toggle, .back-to-top, .blob, .mapa, .btn-grupo, .form-caixa, .filters { display: none !important; }
+  body { background: #fff; font-size: 12pt; }
+  .site-footer { background: none; color: #000; }
+  .site-footer * { color: #000 !important; }
+  a { color: #000; text-decoration: none; }
+  a[href^="http"]::after { content: ' (' attr(href) ')'; font-size: 0.8em; }
+  .pub-item, .edicao, .visitante { break-inside: avoid; }
+}
