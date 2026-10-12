@@ -577,3 +577,34 @@ textarea.form-control { min-height: 140px; resize: vertical; }
 .footer-bottom { margin-top: var(--space-xl); }
 .pub-section-title { margin: var(--space-xl) 0 var(--space-md); }
 .filters { margin-bottom: var(--space-lg); }
+
+/* Livros */
+.livros { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-2xl) var(--space-xl); }
+.livro { display: flex; flex-direction: column; gap: var(--space-md); }
+.capa { position: relative; aspect-ratio: 2 / 3; border-radius: 6px 22px 22px 6px; overflow: hidden; box-shadow: 8px 10px 0 rgba(24, 96, 60, 0.18); display: grid; place-items: center; padding: 1.6rem; text-align: center; }
+.capa--coral { background: var(--coral); color: var(--grafite-escuro); }
+.capa--amarelo { background: var(--amarelo); color: var(--grafite-escuro); }
+.capa--sage { background: var(--sage); color: var(--grafite-escuro); }
+.capa--verde { background: var(--verde); color: var(--papel); }
+.capa-titulo { font-family: var(--fonte-titulo); font-variation-settings: 'SOFT' 100; font-weight: 700; font-size: 1.5rem; line-height: 1.15; }
+.capa-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--branco); }
+.capa.sem-imagem .capa-img { display: none; }
+.livro-papel { font-size: 0.875rem; font-weight: 700; color: var(--laranja-escuro); }
+.livro h2 { font-size: 1.3rem; line-height: 1.25; margin: 0.15rem 0 0.4rem; text-align: left; }
+.livro-autores { font-weight: 700; color: var(--grafite-escuro); margin-bottom: 0.3rem; font-size: 0.9375rem; }
+.livro-ficha { font-size: 0.9375rem; margin-bottom: 0.5rem; }
+.livro-resumo { font-size: 0.9375rem; text-align: justify; hyphens: auto; }
+.livro-info .btn { margin-top: var(--space-sm); }
+.livros { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } .capa { max-width: 230px; width: 100%; }
+.pub-orientacao { font-size: 0.9375rem; margin-bottom: 0.4rem; max-width: none; }
+.pub-orientacao strong { color: var(--verde); }
+
+/* Títulos e subtítulos de seção centralizados */
+h2 { text-align: center; }
+.section-intro { text-align: center; }
+.section-intro p { margin-left: auto; margin-right: auto; }
+.producao > div:first-child { text-align: center; }
+.producao > div:first-child p { margin-left: auto; margin-right: auto; }
+.chamada h2, .visitante h2, .livro h2, .contato-item h2, .coluna-destaque h2 { text-align: left; }
+.duas-colunas h2 { text-align: center; }
+.coluna-destaque h2 { text-align: center; }

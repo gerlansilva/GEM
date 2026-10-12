@@ -56,31 +56,41 @@
     });
   }
 
-  /* --- Filtros (publicações e orientações) --- */
+  /* --- Filtros da Produção Científica: tipo e orientadora --- */
   function initFilters() {
-    var botoes = document.querySelectorAll('[data-filter]');
-    if (!botoes.length) return;
+    var tipos = document.querySelectorAll('[data-filter]');
+    var orients = document.querySelectorAll('[data-orient]');
+    if (!tipos.length) return;
+    var estado = { tipo: 'all', orient: 'all' };
 
-    botoes.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var filtro = btn.getAttribute('data-filter');
-        botoes.forEach(function (b) {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
+    function aplicar(escopo) {
+      escopo.querySelectorAll('[data-category]').forEach(function (item) {
+        var ok = (estado.tipo === 'all' || item.getAttribute('data-category') === estado.tipo) &&
+                 (estado.orient === 'all' || item.getAttribute('data-orientadora') === estado.orient);
+        item.style.display = ok ? '' : 'none';
+      });
+      escopo.querySelectorAll('[data-filter-section]').forEach(function (sec) {
+        var alvo = sec.getAttribute('data-filter-section');
+        var temItem = Array.prototype.some.call(
+          escopo.querySelectorAll('[data-category="' + alvo + '"]'),
+          function (i) { return i.style.display !== 'none'; });
+        sec.style.display = ((estado.tipo === 'all' || estado.tipo === alvo) && temItem) ? '' : 'none';
+      });
+    }
 
-        document.querySelectorAll('[data-category]').forEach(function (item) {
-          var visivel = filtro === 'all' || item.getAttribute('data-category') === filtro;
-          item.style.display = visivel ? '' : 'none';
-        });
-        document.querySelectorAll('[data-filter-section]').forEach(function (sec) {
-          var alvo = sec.getAttribute('data-filter-section');
-          sec.style.display = (filtro === 'all' || alvo === 'all' || alvo === filtro) ? '' : 'none';
+    function ligar(botoes, chave, attr) {
+      botoes.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          botoes.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          estado[chave] = btn.getAttribute(attr);
+          aplicar(btn.closest('[data-page]') || document);
         });
       });
-    });
+    }
+    ligar(tipos, 'tipo', 'data-filter');
+    ligar(orients, 'orient', 'data-orient');
   }
 
   /* --- Formulário de contato: valida e abre o e-mail já preenchido --- */
@@ -141,6 +151,15 @@
     });
   }
 
+  /* --- Capas de livros: sem a imagem, aparece a capa tipográfica --- */
+  function initCapas() {
+    document.querySelectorAll('.capa-img').forEach(function (img) {
+      function semImagem() { img.parentElement.classList.add('sem-imagem'); }
+      img.addEventListener('error', semImagem);
+      if (img.complete && img.naturalWidth === 0) semImagem();
+    });
+  }
+
   /* --- Ano do rodapé --- */
   function initYear() {
     document.querySelectorAll('[data-year]').forEach(function (el) {
@@ -155,6 +174,7 @@
     initFilters();
     initContactForm();
     initYear();
+    initCapas();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
