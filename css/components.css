@@ -681,3 +681,20 @@ h2 { text-align: center; }
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+/* Foto circular do Gerlan */
+.foto-participante {
+  width: 150px !important;
+  height: 150px !important;
+  min-width: 150px;
+  min-height: 150px;
+  border-radius: 50% !important;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  flex-shrink: 0;
+}
+
