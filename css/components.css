@@ -787,3 +787,40 @@ h2 { text-align: center; }
   margin-top: 5px;
   text-align: center;
 }
+
+/* Apresentação unificada do currículo Lattes em toda a equipe */
+.perfil-nome-lattes,
+.participante-nome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.perfil-nome-lattes h3,
+.participante-nome h3 { margin: 0; width: auto; }
+.coordenador-card .perfil-nome-lattes { margin: 0 auto 0.5rem; max-width: 100%; }
+.coordenador-card .perfil-nome-lattes h3 { margin: 0; }
+.lattes-icon-link,
+.coordenador-card a.lattes-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  line-height: 0;
+  padding: 2px;
+  border-radius: 50%;
+}
+.lattes-icon-link:focus-visible { outline: 3px solid var(--verde); outline-offset: 3px; }
+.lattes-icon,
+.coordenador-card .lattes-icon { display:block; width:24px; height:24px; object-fit:contain; }
+.egressos li .lattes-icon-link { display:inline-flex; vertical-align:middle; margin-left:0.35rem; }
+.egressos li .egresso-nome { font-weight:600; }
+.participantes-grid .participante-card { display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0; }
+.pessoas.participantes-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2.5rem 1.5rem; max-width:1120px; margin:0 auto; }
+.participantes-grid .participante-visual { width:150px; height:150px; display:grid; place-items:center; margin:0 auto 1rem; }
+.participantes-grid .participante-foto { width:150px; height:150px; border-radius:50%; object-fit:cover; display:block; margin:0; }
+.participantes-grid .participante-visual .avatar { width:150px; height:150px; font-size:2rem; display:grid; place-items:center; background-size:100% 100%; }
+.participantes-grid .participante-info { width:100%; text-align:center; }
+@media(max-width:850px) { .pessoas.participantes-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:560px) { .pessoas.participantes-grid { grid-template-columns:1fr; } }
