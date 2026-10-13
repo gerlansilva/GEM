@@ -1,0 +1,7 @@
+GEM UFSCar — pacote completo atualizado
+
+Substitua o conteúdo da branch main pelos arquivos desta pasta, mantendo a estrutura de subpastas.
+
+Alterações: fotos originais na página inicial e na página Equipe, manchas ampliadas, elementos centralizados, correção da estrutura HTML defeituosa na página inicial e remoção dos dois filtros da página Produção Científica.
+
+Os links Lattes e as publicações foram mantidos. Não é necessário executar scripts.
