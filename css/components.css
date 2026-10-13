@@ -612,7 +612,7 @@ h2 { text-align: center; }
 /* Seções de coordenação — fotos originais e alinhamento central */
 .coordenadores-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1.5rem,3vw,3.5rem); align-items:start; justify-items:center; max-width:1160px; margin:0 auto var(--space-xl); }
 .coordenador-card { display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0; width:100%; }
-.coordenador-visual { width:min(100%,295px); aspect-ratio:1; position:relative; display:grid; place-items:center; margin-bottom:1.2rem; }
+.coordenador-visual { width:min(100%,200px); aspect-ratio:1; position:relative; display:grid; place-items:center; margin-bottom:1.2rem; }
 /* Fotografias originais sem manchas decorativas */
 .coordenador-foto { display:block; width:100%; height:100%; aspect-ratio:1; object-fit:cover; object-position:center 30%; border:0; border-radius:50%; }
 .coordenador-card h3 { color:var(--verde); font-family:var(--fonte-titulo); font-size:clamp(1.28rem,2vw,1.85rem); line-height:1.25; max-width:22ch; margin:0 auto .45rem; text-align:center; }
