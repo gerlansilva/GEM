@@ -61,7 +61,7 @@
     var tipos = document.querySelectorAll('[data-filter]');
     var orients = document.querySelectorAll('[data-orient]');
     if (!tipos.length) return;
-    var estado = { tipo: 'all', orient: 'all' };
+    var estado = { tipo: (document.querySelector('[data-filter].active') || tipos[0]).getAttribute('data-filter'), orient: 'all' };
 
     function aplicar(escopo) {
       escopo.querySelectorAll('[data-category]').forEach(function (item) {
@@ -91,6 +91,7 @@
     }
     ligar(tipos, 'tipo', 'data-filter');
     ligar(orients, 'orient', 'data-orient');
+    aplicar(document);
   }
 
   /* --- Formulário de contato: valida e abre o e-mail já preenchido --- */
