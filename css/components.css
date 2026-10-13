@@ -871,3 +871,27 @@ h2 { text-align: center; }
 /* Retratos dos pesquisadores visitantes */
 .visitante-foto { display:block; width:170px; height:170px; aspect-ratio:1; object-fit:cover; object-position:center 30%; border-radius:50%; justify-self:center; }
 @media(max-width:720px) { .visitante-foto { width:150px; height:150px; } }
+
+/* GEM: coordenação com instituição e visitantes em retratos centralizados */
+.coordenador-card .coordenador-instituicao {
+  margin: 0 0 .2rem;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--grafite);
+}
+.coordenador-card .pessoa-papel { margin: 0; }
+.visitantes-resumo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  max-width: 1100px;
+  margin: 2.2rem auto 1.5rem;
+  align-items: start;
+}
+.visitante-resumo-card { display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0; }
+.visitante-resumo-card img { width:150px; height:150px; object-fit:cover; object-position:center 30%; border-radius:50%; display:block; margin-bottom:1rem; }
+.visitante-resumo-card h3 { font-size:1.3rem; line-height:1.25; margin:0 0 .4rem; }
+.visitante-resumo-card p { margin:0; text-align:center; }
+.visitantes-resumo-cta { text-align:center; margin:1.5rem auto 0; }
+.visitante-foto { width:170px; height:170px; border-radius:50%; object-fit:cover; object-position:center 30%; display:block; justify-self:center; }
+@media(max-width:720px) { .visitantes-resumo-grid { grid-template-columns:1fr; gap:2rem; } .visitante-foto { width:150px; height:150px; } }
