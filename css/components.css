@@ -743,3 +743,47 @@ h2 { text-align: center; }
   flex-shrink: 0;
 }
 
+
+
+
+
+
+
+/* Nome e ícone do Currículo Lattes */
+.participante-nome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.participante-nome h3 {
+  margin: 0;
+  width: auto;
+}
+
+.lattes-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.lattes-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.lattes-icon-link:hover .lattes-icon {
+  transform: scale(1.12);
+}
+
+.participante-info .pessoa-papel {
+  margin-top: 5px;
+  text-align: center;
+}
