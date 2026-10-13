@@ -895,3 +895,25 @@ h2 { text-align: center; }
 .visitantes-resumo-cta { text-align:center; margin:1.5rem auto 0; }
 .visitante-foto { width:170px; height:170px; border-radius:50%; object-fit:cover; object-position:center 30%; display:block; justify-self:center; }
 @media(max-width:720px) { .visitantes-resumo-grid { grid-template-columns:1fr; gap:2rem; } .visitante-foto { width:150px; height:150px; } }
+
+/* GEM — visitantes: fotos e legendas centralizadas */
+.visitantes-resumo-grid { justify-items:center; align-items:start; }
+.visitante-resumo-card { width:100%; max-width:300px; margin-inline:auto; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.visitante-resumo-card img { display:block; width:150px; height:150px; min-width:150px; min-height:150px; aspect-ratio:1; border-radius:50%; object-fit:cover; object-position:center 30%; flex:0 0 150px; }
+.visitante-resumo-card h3, .visitante-resumo-card p { text-align:center; width:100%; max-width:100%; margin-left:auto; margin-right:auto; }
+.visitante-resumo-card h3 { font-size:1.3rem; line-height:1.28; margin-bottom:.4rem; }
+.visitante-resumo-card p { font-size:.98rem; }
+.visitante-foto { width:170px; height:170px; min-width:170px; min-height:170px; aspect-ratio:1; border-radius:50%; object-fit:cover; }
+@media(max-width:720px) { .visitante-foto { width:150px; height:150px; min-width:150px; min-height:150px; } }
+
+/* Livros: capas e fichas na mesma largura, sem extrapolar cartões */
+.livros { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:2.5rem 1.75rem; align-items:start; }
+.livro { width:100%; max-width:240px; min-width:0; margin-inline:auto; align-items:stretch; }
+.livro .capa { width:100%; max-width:none; box-sizing:border-box; }
+.livro .livro-info { width:100%; max-width:100%; min-width:0; box-sizing:border-box; }
+.livro .livro-info h2 { text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; font-size:clamp(1.05rem,1.2vw,1.17rem); line-height:1.32; margin:0 0 .8rem; }
+.livro .livro-autores { margin:0 0 .55rem; font-size:.875rem; font-weight:500; }
+.livro .livro-autores p { margin:0 0 .25rem; text-align:justify; hyphens:auto; overflow-wrap:anywhere; }
+.livro .livro-ano { margin:0 0 .75rem; text-align:left; font-weight:700; font-size:.9rem; }
+.livro .livro-ficha, .livro .livro-resumo { text-align:justify; hyphens:auto; overflow-wrap:anywhere; }
+.livro .livro-info .btn { max-width:100%; white-space:normal; text-align:center; }
